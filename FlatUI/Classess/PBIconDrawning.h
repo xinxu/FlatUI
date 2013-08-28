@@ -14,6 +14,7 @@ typedef enum {
     PBFlatIconSearch,
     PBFlatIconMenu,
     PBFlatIconMore,
+    PBFlatIconMenuWithNotification
 } PBFlatIconType;
 
 @interface PBIconDrawning : NSObject

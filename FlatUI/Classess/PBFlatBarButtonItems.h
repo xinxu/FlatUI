@@ -15,6 +15,7 @@
 + (UIBarButtonItem *)addBarButtonItemWithTarget:(id)target selector:(SEL)selector;
 + (UIBarButtonItem *)moreBarButtonItemWithTarget:(id)target selector:(SEL)selector;
 + (UIBarButtonItem *)menuBarButtonItemWithTarget:(id)target selector:(SEL)selector;
++ (UIBarButtonItem *)menuWithNotificationBarButtonItemWithTarget:(id)target selector:(SEL)selector;
 + (UIBarButtonItem *)searchBarButtonItemWithTarget:(id)target selector:(SEL)selector;
 + (UIBarButtonItem *)backBarButtonItemWithTarget:(id)target selector:(SEL)selector;
 + (UIBarButtonItem *)forwardBarButtonItemWithTarget:(id)target selector:(SEL)selector;

@@ -41,4 +41,8 @@
     return [self barButtonItemWithIconType:PBFlatIconForward withTarget:target selector:selector];
 }
 
++ (UIBarButtonItem *)menuWithNotificationBarButtonItemWithTarget:(id)target selector:(SEL)selector {
+    return [self barButtonItemWithIconType:PBFlatIconMenuWithNotification withTarget:target selector:selector];
+}
+
 @end

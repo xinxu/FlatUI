@@ -33,6 +33,8 @@
         case PBFlatIconMore:
             [self drawMoreIconInRect:rect withColor:color];
             break;
+        case PBFlatIconMenuWithNotification:
+            [self drawMenuWithNotification:rect withColor:color];
         default:
             break;
     }
@@ -49,6 +51,31 @@
     
     return image;
 
+}
+
++ (void)drawMenuWithNotification:(CGRect)originalRect withColor:(UIColor *)color {
+    CGRect rect = CGRectInset(originalRect, 5, 5);
+    
+    CGFloat drawHeight = CGRectGetHeight(rect) - 4.0f;
+    CGFloat offset = floorf(drawHeight / 3.0f);
+    
+    UIBezierPath* bezierPath = [UIBezierPath bezierPath];
+    [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect) + offset)];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMaxX(rect), CGRectGetMinY(rect) + offset)];
+    [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect) + 2 * offset)];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMaxX(rect), CGRectGetMinY(rect) + 2 * offset)];
+    [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect) + 3 * offset)];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMaxX(rect), CGRectGetMinY(rect) + 3 * offset)];
+    [color setStroke];
+    bezierPath.lineWidth = 1;
+    [bezierPath stroke];
+    [bezierPath closePath];
+    UIBezierPath *notificationPath = [UIBezierPath bezierPath];
+    CGPoint arcCenter = CGPointMake(CGRectGetMaxX(originalRect)-3, CGRectGetMinX(originalRect)+6);
+    [notificationPath addArcWithCenter:arcCenter radius:3 startAngle:0 endAngle:M_PI*2 clockwise:YES];
+    [color setFill];
+    [notificationPath fill];
+    [notificationPath closePath];
 }
 
 + (void)drawBackIconInRect:(CGRect)rect withColor:(UIColor *)color {
